@@ -1,0 +1,39 @@
+No Nivel3.py realiza login na TTN e captura os pacotes de Uplinks de um End Device
+
+É necessário criar uma aplicação na TTN, e dentro desta aplicação na TTN um End Device e após, um API Key.
+
+Os IDs da aplicação, do Device, e dentro do Nivel 3, o código de segurança gerado durante o API Key
+devem ser alterados nos campos abaixo:
+
+# ----------------------------------------------------------
+# SUA CONFIGURAÇÃO TTN DA APLICAÇÃO ID e END DEVICE ID
+# CRIAR UMA API KEY DENTRO DA APLICAÇÃO
+# ----------------------------------------------------------
+TTN_APP_ID      = "bbc-application"           # ex. "my-ldr-app"
+# NNSXS.76WT74RMZMEGLTO6XGHVOTQUF5HIODA4FYSMPPA.ICWGCP6KTM37A4MT7QXOZJG4K33XJ2MQX6V4IJ4QXFE6BBSQGTAQ
+TTN_API_KEY     = "NNSXS.76WT74RMZMEGLTO6XGHVOTQUF5HIODA4FYSMPPA.ICWGCP6KTM37A4MT7QXOZJG4K33XJ2MQX6V4IJ4QXFE6BBSQGTAQ"   # inicia com "NNSXS...."
+TTN_DEVICE_ID   = "bbc-gps"      # O SEU End Device ID
+TTN_REGION      = "au1"          # ex. eu1, nam1, au1
+
+BROKER        = f"au1.cloud.thethings.network"
+
+
+Foram adicionados além da captura na TTN da luminosidade de um LDR, um sensor DHT22 com temperatura e umidade, e um GPS, e como output o arquivo Nivel4.CSV.
+Os Niveis 5 e 6, fazem a leitura de arquivos CSV/TXT gravados na pasta do projeto, fora da TTN.
+O Nivel 5, converte a leitura de sensibilidade RSSI de dBm para mW para calcular a média da sensibilidade de recepção do rádio,
+e reconverte para dBm para a amostragem
+
+N5
+Entrada: Faz leitura tail no Nivel4.csv gerado pelo N3.
+Parse do CSV: a função parseia_csv() mapeia as 13 colunas do cabeçalho do N3 e trata campos None/vazios que o gateway pode não reportar para RSSI/SNR.
+Média de RSSI, e SNR em domínio linear:
+
+dBm → mW  :  10^(dBm/10)      # acumula lista em mW
+dB  → lin :  10^(dB/10)       # acumula lista em razão linear
+média(mW)  → dBm  :  10·log₁₀(média_mW)
+média(lin) → dB   :  10·log₁₀(média_lin)
+
+Saída em dois arquivos .txt de aplicação e de gerência.
+
+N6 — Apenas lê os arquivos gerados pelo N5 (sem alteração de formato), e os rótulos dos gráficos de RSSI e SNR na aba Gerência 
+indicam explicitamente "Média em mW" e "Média linear", deixando claro para o operador que a média exibida é fisicamente correta.

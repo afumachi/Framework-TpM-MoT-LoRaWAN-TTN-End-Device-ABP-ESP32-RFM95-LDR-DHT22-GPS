@@ -9,10 +9,9 @@ devem ser alterados nos campos abaixo:
 # SUA CONFIGURAÇÃO TTN DA APLICAÇÃO ID e END DEVICE ID
 # CRIAR UMA API KEY DENTRO DA APLICAÇÃO
 # ----------------------------------------------------------
-TTN_APP_ID      = "bbc-application"           # ex. "my-ldr-app"
-# NNSXS.76WT74RMZMEGLTO6XGHVOTQUF5HIODA4FYSMPPA.ICWGCP6KTM37A4MT7QXOZJG4K33XJ2MQX6V4IJ4QXFE6BBSQGTAQ
-TTN_API_KEY     = "NNSXS.76WT74RMZMEGLTO6XGHVOTQUF5HIODA4FYSMPPA.ICWGCP6KTM37A4MT7QXOZJG4K33XJ2MQX6V4IJ4QXFE6BBSQGTAQ"   # inicia com "NNSXS...."
-TTN_DEVICE_ID   = "bbc-gps"      # O SEU End Device ID
+TTN_APP_ID      = "your-application-id"           # ex. "my-ldr-app"
+TTN_API_KEY     = "NNSXS..."   # starts with "NNSXS...."
+TTN_DEVICE_ID   = "your-device-id"      # O SEU End Device ID
 TTN_REGION      = "au1"          # ex. eu1, nam1, au1
 
 BROKER        = f"au1.cloud.thethings.network"

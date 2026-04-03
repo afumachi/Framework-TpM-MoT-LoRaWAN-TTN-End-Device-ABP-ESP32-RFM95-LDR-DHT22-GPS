@@ -99,21 +99,21 @@ const int TIPO_SENSOR_GPS = 62; // SENSOR POSIÇÃO GPS GY NEO-6M V2
 //    AppSKey  — 16 bytes, MSB primeiro
 // -----------------------------------------------------------------
 
-// Endereço do End Device - Device Address — 4 bytes
-static const u4_t DEVADDR = 0x260D4DE7;
-// 885721FFFF709954 => DevEUI
+// Device Address — 4 bytes
+static const u4_t DEVADDR = 0x26AAAAE7;
+// xxxxxxFFFFxxxxxx => DevEUI
 // Chave de Network Session Key — 16 bytes, MSB primeiro
 static const u1_t PROGMEM NWKSKEY[16] = {
-    0x0C,0xFB,0x95,0xDC,0xE9,0x45,0xF8,0x71,
-    0x02,0x46,0x7B,0x0B,0x46,0x46,0xF3,0xC9
-    // 0CFB95DCE945F87102467B0B4646F3C9 // Obtido na TTN durante o registro
+    0x00,0xFF,0x00,0xFF,0x00,0xFF,0xFF,0x00,
+    0x00,0xFF,0x00,0xFF,0x00,0xFF,0xFF,0x00
+    // NWKSKEY from TTN during the End Device register
 };
 
 // Cheave de Application Session Key — 16 bytes, MSB primeiro
 static const u1_t PROGMEM APPSKEY[16] = {
-    0xAC,0x4B,0xAF,0x49,0x95,0x25,0x31,0x38,
-    0x01,0x76,0xC2,0x20,0x60,0x95,0xD7,0x42
-    // AC4BAF49952531380176C2206095D742 // Obtido na TTN durante o registro
+    0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,
+    0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,0xFF
+    // APPSKEY from TTN during the End Device register
 };
 
 // -----------------------------------------------------------------

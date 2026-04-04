@@ -62,4 +62,16 @@ Management Menu
 GPS Menu
 <img width="1366" height="728" alt="Captura de tela 2026-04-02 115419" src="https://github.com/user-attachments/assets/aa14f478-aa30-409e-8025-b4b78355e9ee" />
 
+The .docx files , is the steps to declare a Gateway and a Application with the End Device over TTN platform.
+
+Config in Arduino Platform the Single Channel Gateway Firmware.docx
+How to create at TTN an End Device.docx
+
+About End Device compilation, it is important to do the follow modification on LMIC library in hall.cpp file.
+
+![WhatsApp Image 2026-03-24 at 21 30 44](https://github.com/user-attachments/assets/355f18ba-1ff4-4067-8408-95ae190e64a6)
+
+Prototyping:
+
+![WhatsApp Image 2026-03-30 at 08 37 50](https://github.com/user-attachments/assets/bce6f606-c4d3-484b-97a2-970fbafcd0c0)
 
